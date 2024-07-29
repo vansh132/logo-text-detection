@@ -9,6 +9,10 @@ app = FastAPI()
 # Initialize the PaddleOCR with DBNet for text detection
 ocr = PaddleOCR(det_model_dir='path/to/dbnet/model', use_angle_cls=True, lang='en')  # Modify with the actual path if needed
 
+@app.get("/")
+async def home():
+    return {"message": "Text Detection API: Running on Render"}
+
 @app.post("/detect-text-db")
 async def detect_text_db(
     image: UploadFile = File(...),
