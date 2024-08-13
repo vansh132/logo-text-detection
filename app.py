@@ -69,9 +69,9 @@ async def detect_text_db(
     # print(arr)
     result = find_deemed(arr)
     if result['found']:
-        response = JSONResponse(content={"detections": detections, "message": "valid poster"})
+        response = JSONResponse(content={"status": True ,"detections": detections, "message": "valid poster",})
     else:
-        response = JSONResponse(content={"detections": detections, "message": "poster not valid"})
+        response = JSONResponse(content={"staus": False, "detections": detections, "message": "poster not valid",})
 
     return response
 
